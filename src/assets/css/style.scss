@@ -1,0 +1,270 @@
+div {
+	box-sizing: border-box;
+}
+
+$mainColor: (
+	red: red,
+	white: white,
+	main: #3b2af8,
+);
+
+@for $i from 1 through 500 {
+	// 位置宽高
+	.w-#{$i} {
+		width: 1px * $i;
+	}
+
+	.h-#{$i} {
+		height: 1px * $i;
+	}
+
+	.wh-#{$i} {
+		width: 1px * $i;
+		height: 1px * $i;
+	}
+
+	.mr-#{$i} {
+		margin-right: 1px * $i;
+	}
+
+	.ml-#{$i} {
+		margin-left: 1px * $i;
+	}
+
+	.mt-#{$i} {
+		margin-top: 1px * $i;
+	}
+
+	.mb-#{$i} {
+		margin-bottom: 1px * $i;
+	}
+
+	.mx-#{$i} {
+		margin-left: 1px * $i;
+		margin-right: 1px * $i;
+	}
+
+	.my-#{$i} {
+		margin-top: 1px * $i;
+		margin-bottom: 1px * $i;
+	}
+
+	.m-#{$i} {
+		margin: 1px * $i;
+	}
+
+	.pr-#{$i} {
+		padding-right: 1px * $i;
+	}
+
+	.pl-#{$i} {
+		padding-left: 1px * $i;
+	}
+
+	.pt-#{$i} {
+		padding-top: 1px * $i;
+	}
+
+	.pb-#{$i} {
+		padding-bottom: 1px * $i;
+	}
+
+	.px-#{$i} {
+		padding-right: 1px * $i;
+		padding-left: 1px * $i;
+	}
+
+	.py-#{$i} {
+		padding-top: 1px * $i;
+		padding-bottom: 1px * $i;
+	}
+
+	.p-#{$i} {
+		padding: 1px * $i;
+	}
+
+	.top-#{$i} {
+		top: 1px * $i;
+	}
+
+	.bottom-#{$i} {
+		bottom: 1px * $i;
+	}
+
+	.left-#{$i} {
+		left: 1px * $i;
+	}
+
+	.right-#{$i} {
+		right: 1px * $i;
+	}
+
+	.z-#{$i} {
+		z-index: $i;
+	}
+}
+
+@for $i from 1 through 50 {
+	// 盒子相关
+	.rounded-#{$i} {
+		border-radius: 1px * $i;
+	}
+
+	.border-#{$i} {
+		border-style: solid;
+		border-width: 1px * $i;
+	}
+
+	.border-r-#{$i} {
+		border-style: solid;
+		border-right-width: 1px * $i;
+	}
+
+	.border-t-#{$i} {
+		border-style: solid;
+		border-top-width: 1px * $i;
+	}
+
+	.border-l-#{$i} {
+		border-style: solid;
+		border-left-width: 1px * $i;
+	}
+
+	.border-b-#{$i} {
+		border-style: solid;
+		border-bottom-width: 1px * $i;
+	}
+
+	// 文本相关
+	.text-#{$i} {
+		font-size: 1px * $i;
+	}
+
+	.tracking-#{$i} {
+		letter-spacing: 1px * $i * 1;
+	}
+
+	.leading-#{$i} {
+		line-height: 1px * $i * 1;
+	}
+}
+
+@for $i from 1 through 100 {
+	.w-#{$i}\% {
+		width: #{$i + "%"};
+	}
+
+	.h-#{$i}\% {
+		height: #{$i + "%"};
+	}
+
+	.w-#{$i}vw {
+		width: #{$i + "vw"};
+	}
+
+	.h-#{$i}vh {
+		height: #{$i + "vh"};
+	}
+}
+
+// 位置宽高
+.h-full {
+	height: 100%;
+}
+
+.w-full {
+	width: 100%;
+}
+
+$position: (relative, absolute, fixed, sticky);
+
+@each $p in $position {
+	.#{$p} {
+		position: $p;
+	}
+}
+
+$cursor: (pointer, move); // 此处与tailwindcss不同
+
+@each $c in $cursor {
+	.#{$c} {
+		cursor: $c;
+	}
+}
+
+// 文本相关
+$fontWeight: (normal, bold);
+
+@each $fw in $fontWeight {
+	.font-#{$fw} {
+		font-weight: $fw;
+	}
+}
+
+$textAlign: (left, center, right, justify);
+
+@each $ta in $textAlign {
+	.text-#{$ta} {
+		text-align: $ta;
+	}
+}
+
+// 盒子相关
+@each $c, $val in $mainColor {
+	.text-#{""+$c} {
+		color: $val;
+	}
+
+	.border-#{""+$c} {
+		border-color: $val;
+	}
+
+	.bg-#{""+$c} {
+		background-color: $val;
+	}
+}
+
+// 弹性盒子
+.flex {
+	display: flex;
+}
+
+$flexBox: (
+	row: direction,
+	col: direction,
+	1: grow,
+	wrap: wrap,
+	nowrap: wrap,
+);
+
+@each $f, $val in $flexBox {
+	.flex-#{$f} {
+		flex-#{$val}: $f;
+	}
+}
+
+$justifyContent: (
+	start: flex-start,
+	center: center,
+	end: flex-end,
+	around: space-around,
+	between: space-between,
+);
+
+@each $jc, $val in $justifyContent {
+	.justify-#{$jc} {
+		justify-content: $val;
+	}
+}
+
+$alignItems: (
+	start: flex-start,
+	center: center,
+	end: flex-end,
+);
+
+@each $ai, $val in $alignItems {
+	.items-#{$ai} {
+		align-items: $val;
+	}
+}
